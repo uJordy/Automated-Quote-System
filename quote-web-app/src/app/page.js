@@ -84,9 +84,9 @@ export default function Home() {
 
           <MyForm id="quote-form" classNameProp="" generateQuote={generateQuote} />
 
-          <motion.div layout className="basis-lg border-(--border) border-1 grow-2 rounded-lg ">
-            <h2 className="text-2xl font-semibold">Your Quote</h2>
-            <QuoteTabs quoteDetails={quoteDetails} />
+          <motion.div layout className="basis-lg border-(--border) border-1 grow-2 rounded-lg shadow-xl">
+            <h2 className="text-2xl font-semibold md:text-start sm:text-start">Your Quote</h2>
+            <QuoteTabs quoteDetails={quoteDetails}  />
           </motion.div>
         </motion.div>
       </main>
