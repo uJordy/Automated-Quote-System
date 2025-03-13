@@ -117,7 +117,7 @@ export default function MyForm({generateQuote, id, classNameProp}) {
       <form
         id={id}
         onSubmit={form.handleSubmit((data) => onFormSubmit(data))}
-        className={cn("space-y-8 max-w-3xl mx-auto py-10 border-(--border) border-1 grow rounded-lg", classNameProp)}
+        className={cn("space-y-8 max-w-3xl mx-auto py-10 border-(--border) border-1 rounded-lg", classNameProp)}
       >
         <h2 className="text-2xl font-semibold">Quote Form</h2>
         <FormField

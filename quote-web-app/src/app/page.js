@@ -6,12 +6,15 @@ import MyForm from "@/components/quote-form";
 import { BackgroundLines } from "@/components/ui/background-lines";
 import Image from "next/image";
 import Link from "next/link";
-import { TabsDemo } from "@/components/quote-tabs";
+import { QuoteTabs } from "@/components/quote-tabs";
+
 
 export default function Home() {
 
-  const [quote, setQuote] = useState(0);
 
+  const [quoteDetails, setQuoteDetails] = useState(null);
+  
+  // { app_type: "website", page_num: 3, features_required: ["E-commerce", "Blog", "Booking System", "Portfolio", "Forum", "Social Media", "Other"], design_complexities: "standard", quote: 5000 }
   const generateQuote = (formData) => {
     "use client";
 
@@ -33,21 +36,19 @@ export default function Home() {
       custom: 2,
     }[design_complexities]
 
-    setQuote((baseHours + pageHours + featureHours) * complexityMultiplier);
+    const quote = (baseHours + pageHours + featureHours) * complexityMultiplier;
+
+    setQuoteDetails({
+      app_type: app_type,
+      page_num: page_num,
+      features_required: features_required,
+      complexity: design_complexities,
+      quote: quote
+    });
   }
 
-  const renderQuote = () => {  
-    if (quote === 0) {
-      return null
-    } else {
-      return (
 
-      <p>{quote}</p>
-    )
-    }
-  }
-
-  function scrollToElement(id) {
+  function scrollToElement(id) { //For "Get started" button
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -57,10 +58,6 @@ export default function Home() {
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
-      {/* <div className="h-96 w-full relative top-0 z-10">
-        <Image className=" z-10 h-full w-full object-cover" src="/pexels-walidphotoz-1509582.jpg" alt="Bird's eye view of desert" fill={true} />
-      </div> */}
-
       <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
         <h2
           className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
@@ -78,20 +75,14 @@ export default function Home() {
       </BackgroundLines>
 
       <main className="m-10 flex flex-col gap-4 row-start-2 items-center sm:items-start">
-        <motion.div layout className="flex flex-row gap-4 w-full *:p-5">
-          
-          <MyForm id="quote-form" classNameProp="basis-full" generateQuote={generateQuote} />
+        <motion.div layout className="flex flex-row gap-4 w-full *:p-5 flex-wrap">
 
-          <motion.div layout className="border-(--border) border-1 grow rounded-lg ">
+          <MyForm id="quote-form" classNameProp="" generateQuote={generateQuote} />
+
+          <motion.div layout className="basis-lg border-(--border) border-1 grow-2 rounded-lg ">
             <h2 className="text-2xl font-semibold">Your Quote</h2>
-            <TabsDemo/>
-            {/* <div>
-                <div className="inline-flex items-center"><p className="italic">Type:</p><p className="font-bold text-lg">App</p></div>
-            </div>
-            <p className="text-lg">£{quote}</p> */}
-
+            <QuoteTabs quoteDetails={quoteDetails}/>
           </motion.div>
-          {/* {renderQuote()} */}
         </motion.div>
       </main>
     </div>
