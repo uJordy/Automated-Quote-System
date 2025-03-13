@@ -1,7 +1,7 @@
 import React from "react";
 import { BackgroundLines } from "@/components/ui/background-lines";
 
-export function BackgroundLinesDemo() {
+export function Background() { // Component spans whole page on both height and width
   return (
     (<BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
       <h2

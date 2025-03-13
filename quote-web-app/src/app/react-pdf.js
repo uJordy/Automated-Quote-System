@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 });
 
 // Create Document Component
+// Very rough PDF file, needs tweaking in the future
 function QuoteDocument({ quoteDetails, quoteSummary }) {
 
   const { app_type, page_num, features_required, complexity, quote } = quoteDetails;

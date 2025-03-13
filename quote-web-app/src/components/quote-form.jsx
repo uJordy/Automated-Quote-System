@@ -38,7 +38,7 @@ import {
   MultiSelectorList,
   MultiSelectorTrigger,
 } from "@/components/ui/multi-select";
-import { estimatePrice } from "@/app/actions";
+
 
 const formSchema = z.object({
   app_type: z.string(),
@@ -81,7 +81,7 @@ export default function MyForm({generateQuote, id, classNameProp}) {
   ];
 
 
-  const form = useForm({
+  const form = useForm({ //Defines default values for the form
     resolver: zodResolver(formSchema),
     defaultValues: {
       page_num: [0],
@@ -89,26 +89,12 @@ export default function MyForm({generateQuote, id, classNameProp}) {
     },
   });
 
-  function onSubmit(values) {
-    try {
-      console.log("Form submitted", values);
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
-    } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
-    }
-  }
 
-  const onFormSubmit = (form) => {
+
+  const onFormSubmit = (form) => { //Function to handle form submission
     "use client";
     generateQuote(form); 
-    // let res = await estimatePrice(form);
-    console.log("on Form Submit")
+    console.log("Form submitted");
   }
     
 
@@ -120,6 +106,9 @@ export default function MyForm({generateQuote, id, classNameProp}) {
         className={cn("space-y-8 max-w-3xl mx-auto py-10 border-(--border) border-1 rounded-lg", classNameProp)}
       >
         <h2 className="text-2xl font-semibold">Quote Form</h2>
+        
+        
+        {/* App_type dropdown */}
         <FormField
           control={form.control}
           name="app_type"
@@ -178,6 +167,8 @@ export default function MyForm({generateQuote, id, classNameProp}) {
           )}
         />
 
+
+        {/* Number of Pages/Screens Input */}
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
             <FormField
@@ -197,6 +188,8 @@ export default function MyForm({generateQuote, id, classNameProp}) {
           </div>
         </div>
 
+        
+        {/* Features Required MultiSelector */}
         <FormField
           control={form.control}
           name="features_required"
@@ -243,6 +236,10 @@ export default function MyForm({generateQuote, id, classNameProp}) {
             </FormItem>
           )}
         />
+
+
+
+        {/* Design Complexity Dropdown */}
         <FormField
           control={form.control}
           name="design_complexities"

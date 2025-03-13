@@ -10,10 +10,10 @@ import { QuoteDocument } from "@/app/react-pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export function QuoteTabs({ quoteDetails }) {
-  const summaryText =
+  const summaryText = // Placeholder text to represent summary information for a quote
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error,architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum!";
 
-  const technicalText =
+  const technicalText = // Placeholder text to represent summary information for a quote
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error, architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem ratione quia, velit tempore explicabo iure vero voluptas illo eaque alias";
 
   if (!quoteDetails) {

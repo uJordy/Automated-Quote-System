@@ -23,11 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <nav className="sticky top-0 z-20 bg-slate/30 dark:bg-black/30 backdrop-filter backdrop-blur-lg border-b border-gray-100/50 dark:border-gray-800">
-          <Link className="text-lg block p-4 text-blue-500 dark:text-blue-300" href="/">
-            Home
-          </Link>
-        </nav> */}
+
         {children}
       </body>
     </html>
