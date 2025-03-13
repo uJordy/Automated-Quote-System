@@ -10,11 +10,11 @@ import { QuoteDocument } from "@/app/react-pdf";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 
 export function QuoteTabs({ quoteDetails }) {
+  const summaryText =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error,architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum!";
 
-  const summaryText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error,architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum!"
-
-  const technicalText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error, architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem ratione quia, velit tempore explicabo iure vero voluptas illo eaque alias"
-
+  const technicalText =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor deserunt porro fugiat similique, quod quae molestiae. Blanditiis recusandae velit est voluptate. Quas dolor recusandae error, architecto quia impedit vel sunt! Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur consectetur quam voluptate veritatis earum nulla eaque quisquam sequi itaque fuga. Non, eaque sint tempora minima iusto recusandae veritatis reiciendis! Earum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem ratione quia, velit tempore explicabo iure vero voluptas illo eaque alias";
 
   if (!quoteDetails) {
     return (
@@ -54,9 +54,7 @@ export function QuoteTabs({ quoteDetails }) {
             </div>
           </div>
           <p className="text-white/80">Description:</p>
-          <p>
-            {summaryText}
-          </p>
+          <p>{summaryText}</p>
           <div className="my-5 inline-flex">
             <div className="my-auto">
               <p className="text-white/80 mr-2">Estimated Quote:</p>
@@ -69,7 +67,15 @@ export function QuoteTabs({ quoteDetails }) {
           <motion.div className="flex justify-start mt-auto gap-2">
             <Button className="bg-orange-500 text-white px-4 py-2 text-xl rounded-full shadow-xl">
               <IoDocument className="text-white" />
-              <PDFDownloadLink document={<QuoteDocument quoteDetails={quoteDetails} quoteSummary={summaryText} />} fileName="quote.pdf">
+              <PDFDownloadLink
+                document={
+                  <QuoteDocument
+                    quoteDetails={quoteDetails}
+                    quoteSummary={summaryText}
+                  />
+                }
+                fileName="quote.pdf"
+              >
                 {({ blob, url, loading, error }) =>
                   loading ? "Preparing document.." : "Export to PDF"
                 }
@@ -111,9 +117,7 @@ export function QuoteTabs({ quoteDetails }) {
             </div>
           </div>
           <p className="text-white/80">Description:</p>
-          <p>
-            {technicalText}
-          </p>
+          <p>{technicalText}</p>
           <div className="my-5 inline-flex">
             <div className="my-auto">
               <p className="text-white/80 mr-2">Estimated Quote:</p>
@@ -126,7 +130,19 @@ export function QuoteTabs({ quoteDetails }) {
           <motion.div className="flex justify-start mt-auto gap-2">
             <Button className="bg-orange-500 text-white px-4 py-2 text-xl rounded-full shadow-xl">
               <IoDocument className="text-white" />
-              Export to PDF
+              <PDFDownloadLink
+                document={
+                  <QuoteDocument
+                    quoteDetails={quoteDetails}
+                    quoteSummary={technicalText}
+                  />
+                }
+                fileName="quote.pdf"
+              >
+                {({ blob, url, loading, error }) =>
+                  loading ? "Preparing document.." : "Export to PDF"
+                }
+              </PDFDownloadLink>
             </Button>
             <Button className="bg-orange-500 text-white px-4 py-2 text-xl rounded-full shadow-xl">
               <IoMdMail className="text-white" />
