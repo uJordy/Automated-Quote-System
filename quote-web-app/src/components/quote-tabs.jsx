@@ -53,7 +53,7 @@ export function QuoteTabs({ quoteDetails }) {
               </p>
             </div>
           </div>
-          
+
           <p className="text-white/80">Description:</p>
           <p>{summaryText}</p>
 
@@ -161,7 +161,7 @@ export function QuoteTabs({ quoteDetails }) {
   ];
 
   return (
-    <motion.div layout className="h-[20rem] md:h-[40rem] lg:h-[50rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-40">
+    <motion.div layout className="h-[20rem] md:h-[40rem] sm:h-[48rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-40">
       <Tabs tabs={tabs} />
     </motion.div>
   );
