@@ -26,6 +26,9 @@ export default function RootLayout({ children }) {
 
         {children}
       </body>
+      <footer className="bg-orange-500 text-white text-center py-4">
+          <p className="font-bold">© 2025 Quote System</p>
+        </footer>
     </html>
   );
 }
