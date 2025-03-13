@@ -38,6 +38,7 @@ import {
   MultiSelectorList,
   MultiSelectorTrigger,
 } from "@/components/ui/multi-select";
+import { estimatePrice } from "@/app/actions";
 
 const formSchema = z.object({
   app_type: z.string(),
@@ -51,7 +52,7 @@ const formSchema = z.object({
   design_complexities: z.string(),
 });
 
-export default function MyForm() {
+export default function MyForm({generateQuote, id, classNameProp}) {
 
   const app_types = [
     {
@@ -79,11 +80,12 @@ export default function MyForm() {
     },
   ];
 
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       page_num: [0],
-      features_required: ["e-commerce"],
+      features_required: ["E-commerce"],
     },
   });
 
@@ -102,12 +104,22 @@ export default function MyForm() {
     }
   }
 
+  const onFormSubmit = (form) => {
+    "use client";
+    generateQuote(form); 
+    // let res = await estimatePrice(form);
+    console.log("on Form Submit")
+  }
+    
+
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 max-w-3xl mx-auto py-10"
+        id={id}
+        onSubmit={form.handleSubmit((data) => onFormSubmit(data))}
+        className={cn("space-y-8 max-w-3xl mx-auto py-10 border-(--border) border-1 grow rounded-lg", classNameProp)}
       >
+        <h2 className="text-2xl font-semibold">Quote Form</h2>
         <FormField
           control={form.control}
           name="app_type"
@@ -135,9 +147,7 @@ export default function MyForm() {
                 </PopoverTrigger>
                 <PopoverContent className="w-[200px] p-0">
                   <Command>
-                    {/* <CommandInput placeholder="Search language..." /> */}
                     <CommandList>
-                      {/* <CommandEmpty>No language found.</CommandEmpty> */}
                       <CommandGroup>
                         {app_types.map((type) => (
                           <CommandItem
@@ -294,7 +304,7 @@ export default function MyForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Calculate Quote</Button>
       </form>
     </Form>
   );
