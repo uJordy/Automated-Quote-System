@@ -2,13 +2,24 @@
 
 Welcome to the Automated Quote System's Quote Web App! This application allows users to generate quotes for web and mobile apps.
 
+
+
 ## Table of Contents
 
+- [Tech Stack](#techstack)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
+
+## Tech Stack
+
+The Quote Web App is built using the following technologies:
+
+- NextJS
+- React
+- TailwindCSS
+- Motion
+- RadixUI
 
 ## Installation
 
