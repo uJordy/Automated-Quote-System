@@ -1,4 +1,4 @@
-#  Automated Quote System - Quote Web App
+#  Automated Quote System
 
 This application allows users to generate quotes for web and mobile apps.
 
