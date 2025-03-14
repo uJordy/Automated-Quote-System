@@ -2,6 +2,8 @@
 
 This application allows users to generate quotes for web and mobile apps.
 
+Please note this is a *prototype* 
+
 
 
 ## Table of Contents
