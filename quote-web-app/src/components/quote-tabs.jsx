@@ -40,7 +40,7 @@ export function QuoteTabs({ quoteDetails }) {
             </div>
             <div>
               <p className=" text-white/80 mr-2">Number of pages/screens:</p>
-              <p className="font-bold capitalize"> {quoteDetails.app_type}</p>
+              <p className="font-bold capitalize"> {quoteDetails.page_num}</p>
             </div>
             <div>
               <p className=" text-white/80 mr-2">Design Complexity:</p>
@@ -105,7 +105,7 @@ export function QuoteTabs({ quoteDetails }) {
             </div>
             <div>
               <p className=" text-white/80 mr-2">Number of pages/screens:</p>
-              <p className="font-bold capitalize"> {quoteDetails.app_type}</p>
+              <p className="font-bold capitalize"> {quoteDetails.page_num}</p>
             </div>
             <div>
               <p className=" text-white/80 mr-2">Design Complexity:</p>
