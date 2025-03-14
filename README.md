@@ -1,6 +1,6 @@
-# Automated Quote System - Quote Web App
+#  Automated Quote System - Quote Web App
 
-Welcome to the Automated Quote System's Quote Web App! This application allows users to generate quotes for web and mobile apps.
+This application allows users to generate quotes for web and mobile apps.
 
 
 
