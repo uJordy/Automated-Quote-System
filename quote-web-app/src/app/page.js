@@ -61,7 +61,7 @@ export default function Home() {
     <div className="font-[family-name:var(--font-geist-sans)]">
 
       {/* Background VV */}
-      <Background className="flex items-center justify-center w-full flex-col px-4">
+      <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
         <h2
           className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-4xl lg:text-7xl font-sans py-2 md:py-10 relative z-20 font-bold tracking-tight">
           Automated <br /> Quote System.
@@ -75,7 +75,7 @@ export default function Home() {
         <button onClick={() => scrollToElement("quote-form")} className="bg-clip-padding z-20 mt-7 bg-orange-500 dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
           Get started
         </button>
-      </Background>
+      </BackgroundLines>
       {/* Background ^^ */}
 
 
